@@ -81,7 +81,7 @@ if __name__ == "__main__":
     create_tables(db_test)
     insert_produit(db_test,"Ram",400,1)
     update_produit(db_test,"Ram",600,2)
-    insert_produit(db_test,"CPY",400,1)
+    insert_produit(db_test,"CPU",400,1)
 
 
     insert_client(db_test,"Aymen","0615478454")

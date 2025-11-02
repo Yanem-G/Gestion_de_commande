@@ -97,9 +97,9 @@ titre_produits.pack(anchor='w')
 trv_produit=ttk.Treeview(produits_frame,columns=(1,2,3,4),height=10,show="headings")
 
 trv_produit.column(1,width=50,anchor=CENTER)
-trv_produit.column(2,width=150,anchor=CENTER)
-trv_produit.column(3,width=100,anchor=CENTER)
-trv_produit.column(4,width=200,anchor=CENTER)
+trv_produit.column(2,width=200,anchor=CENTER)
+trv_produit.column(3,width=150,anchor=CENTER)
+trv_produit.column(4,width=230,anchor=CENTER)
 
 trv_produit.heading(1,text="ID")
 trv_produit.heading(2,text="Nom")
@@ -157,14 +157,31 @@ def supprimmer_produit():
     updateTable(trv_produit,table='Produit')
 
 prod_bouton1= Button(form_produit,text="Ajouter un produit",font=("fourrier",13),width=20,pady=10,command=ajouter_produit)
-prod_bouton1.grid(column=0,row=4,pady=10)
+prod_bouton1.grid(column=0,row=4,pady=10,padx=10)
 prod_bouton2 = Button(form_produit,text="Modifier un produit",font=("fourrier",13),width=20,pady=10,command=modifier_produit)
-prod_bouton2.grid(column=1,row=4,pady=10)
-prod_bouton3 = Button(form_produit,text="supprimmer un produit",font=("fourrier",13),width=20,pady=10,command=supprimmer_produit)
-prod_bouton3.grid(column=2,row=4,pady=10)
+prod_bouton2.grid(column=1,row=4,pady=10,padx=10)
+prod_bouton3 = Button(form_produit,text="Supprimmer un produit",font=("fourrier",13),width=20,pady=10,command=supprimmer_produit)
+prod_bouton3.grid(column=2,row=4,pady=10,padx=10)
 
 
+def on_select(event):
+    selected_item = trv_produit.focus()
+    if not selected_item:
+        return
+    values = trv_produit.item(selected_item, 'values')
+    
+    # Clear old data
+    prod_entry1.delete(0, END)
+    prod_entry2.delete(0, END)
+    prod_entry3.delete(0, END)
+    
+    # Fill with new data
+    prod_entry1.insert(0, values[1])
+    prod_entry2.insert(0, values[3])
+    prod_entry3.insert(0, values[2])
 
+#  Bind Treeview selection event 
+trv_produit.bind("<<TreeviewSelect>>", on_select)
 #############################################################
 
 
@@ -189,8 +206,8 @@ titre_client.pack(anchor='w')
 trv_client=ttk.Treeview(clients_frame,columns=(1,2,3),height=10,show="headings")
 
 trv_client.column(1,width=50,anchor=CENTER)
-trv_client.column(2,width=150,anchor=CENTER)
-trv_client.column(3,width=200,anchor=CENTER)
+trv_client.column(2,width=200,anchor=CENTER)
+trv_client.column(3,width=250,anchor=CENTER)
 
 trv_client.heading(1,text="ID")
 trv_client.heading(2,text="Nom")
@@ -207,7 +224,7 @@ form_client.pack(padx=10,pady=10,fill="x")
 
 com1=Label(form_client,text="Nom:",font=("courrier", 20, "bold") , background="#ffffff")
 com1.grid(column=0,row=0)
-com2=Label(form_client,text="contact",font=("courrier", 20, "bold") , background="#ffffff")
+com2=Label(form_client,text="contact:",font=("courrier", 20, "bold") , background="#ffffff")
 com2.grid(column=0,row=1)
 
 client_entry1 = Entry(form_client,font=("courrier", 20, "bold") , background="#ffffff")
@@ -241,11 +258,29 @@ def supprimmer_client():
     updateTable(trv_client,table='Client')
 
 client_bouton1= Button(form_client,text="Ajouter un client",font=("fourrier",13),width=20,pady=10,command=ajouter_client)
-client_bouton1.grid(column=0,row=4,pady=10)
+client_bouton1.grid(column=0,row=4,pady=10,padx=10)
 client_bouton2 = Button(form_client,text="Modifier un client",font=("fourrier",13),width=20,pady=10,command=modifier_client)
-client_bouton2.grid(column=1,row=4,pady=10)
-client_bouton3 = Button(form_client,text="supprimmer un client",font=("fourrier",13),width=20,pady=10,command=supprimmer_client)
-client_bouton3.grid(column=2,row=4,pady=10)
+client_bouton2.grid(column=1,row=4,pady=10,padx=10)
+client_bouton3 = Button(form_client,text="Supprimmer un client",font=("fourrier",13),width=20,pady=10,command=supprimmer_client)
+client_bouton3.grid(column=2,row=4,pady=10,padx=10)
+
+
+def on_select(event):
+    selected_item = trv_client.focus() 
+    if not selected_item: 
+        return
+    values = trv_client.item(selected_item, 'values')
+    
+    # Clear old data
+    client_entry1.delete(0, END)
+    client_entry2.delete(0, END)
+    
+    # Fill with new data
+    client_entry1.insert(0, values[1])
+    client_entry2.insert(0, values[2])
+
+#  Bind Treeview selection event 
+trv_client.bind("<<TreeviewSelect>>", on_select)
 #############################################################
 
 
@@ -329,12 +364,32 @@ def supprimmer_commande():
     #on met a jour la table
     updateTable(trv_commande,table='Commande')
 
-comm_bouton1= Button(form_commande,text="Ajouter une commande",font=("fourrier",13),width=20,pady=10,command=ajouter_commande)
-comm_bouton1.grid(column=0,row=4,pady=10)
-comm_bouton2 = Button(form_commande,text="Modifier une commande",font=("fourrier",13),width=20,pady=10,command=modifier_commande)
-comm_bouton2.grid(column=1,row=4,pady=10)
-comm_bouton3 = Button(form_commande,text="supprimmer une commande",font=("fourrier",13),width=20,pady=10,command=supprimmer_commande)
-comm_bouton3.grid(column=2,row=4,pady=10)
+comm_bouton1= Button(form_commande,text="Ajouter une commande",font=("fourrier",13),pady=10,command=ajouter_commande)
+comm_bouton1.grid(column=0,row=4,pady=10,padx=5)
+comm_bouton2 = Button(form_commande,text="Modifier une commande",font=("fourrier",13),pady=10,command=modifier_commande)
+comm_bouton2.grid(column=1,row=4,pady=10,padx=5)
+comm_bouton3 = Button(form_commande,text="Supprimmer une commande",font=("fourrier",13),pady=10,command=supprimmer_commande)
+comm_bouton3.grid(column=2,row=4,pady=10,padx=5)
+
+
+def on_select(event):
+    selected_item = trv_commande.focus()
+    if not selected_item:
+        return
+    values = trv_commande.item(selected_item, 'values')
+    
+    # Clear old data
+    comm_entry1.delete(0, END)
+    comm_entry2.delete(0, END)
+    comm_entry3.delete(0, END)
+    
+    # Fill with new data
+    comm_entry1.insert(0, values[1])
+    comm_entry2.insert(0, values[2])
+    comm_entry3.insert(0, values[3])
+
+#  Bind Treeview selection event 
+trv_commande.bind("<<TreeviewSelect>>", on_select)
 
 #############################################################
 
