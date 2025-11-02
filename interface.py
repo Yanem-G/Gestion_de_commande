@@ -122,11 +122,11 @@ com2.grid(column=0,row=1)
 com3=Label(form_produit,text="Prix:",font=("courrier", 20, "bold") , background="#ffffff")
 com3.grid(column=0,row=2)
 
-prod_entry1 = Entry(form_produit,font=("courrier", 20, "bold") , background="#ffffff")
+prod_entry1 = Entry(form_produit,font=("courrier", 20) , background="#ffffff")
 prod_entry1.grid(column=1,row=0,sticky="ew", columnspan=2) # columnspan dit au grid de sétirer sur la colonne 2
-prod_entry2 = Entry(form_produit,font=("courrier", 20, "bold") , background="#ffffff")
+prod_entry2 = Entry(form_produit,font=("courrier", 20) , background="#ffffff")
 prod_entry2.grid(column=1,row=1,sticky="ew", columnspan=2)
-prod_entry3 = Entry(form_produit,font=("courrier", 20, "bold") , background="#ffffff")
+prod_entry3 = Entry(form_produit,font=("courrier", 20) , background="#ffffff")
 prod_entry3.grid(column=1,row=2,sticky="ew", columnspan=2)
 
 # Les fonctions des boutons
@@ -227,9 +227,9 @@ com1.grid(column=0,row=0)
 com2=Label(form_client,text="contact:",font=("courrier", 20, "bold") , background="#ffffff")
 com2.grid(column=0,row=1)
 
-client_entry1 = Entry(form_client,font=("courrier", 20, "bold") , background="#ffffff")
+client_entry1 = Entry(form_client,font=("courrier", 20) , background="#ffffff")
 client_entry1.grid(column=1,row=0,sticky="ew", columnspan=2) # columnspan dit au grid de sétirer sur la colonne 2
-client_entry2 = Entry(form_client,font=("courrier", 20, "bold") , background="#ffffff")
+client_entry2 = Entry(form_client,font=("courrier", 20) , background="#ffffff")
 client_entry2.grid(column=1,row=1,sticky="ew", columnspan=2)
 
 # Les fonctions des boutons
@@ -321,18 +321,18 @@ form_commande = Frame(commandes_frame,bg="white")
 form_commande.grid_columnconfigure(1, weight=1) # les widget dans la colonne 1 vont pouvoir prendre tout l'espace disponible
 form_commande.pack(padx=10,pady=10,fill="x")
 
-com1=Label(form_commande,text="Client:",font=("courrier", 20, "bold") , background="#ffffff")
+com1=Label(form_commande,text="Client:",font=("courrier", 20) , background="#ffffff")
 com1.grid(column=0,row=0)
-com2=Label(form_commande,text="Produit:",font=("courrier", 20, "bold") , background="#ffffff")
+com2=Label(form_commande,text="Produit:",font=("courrier", 20) , background="#ffffff")
 com2.grid(column=0,row=1)
-com3=Label(form_commande,text="Quantite:",font=("courrier", 20, "bold") , background="#ffffff")
+com3=Label(form_commande,text="Quantite:",font=("courrier", 20) , background="#ffffff")
 com3.grid(column=0,row=2)
 
-comm_entry1 = Entry(form_commande,font=("courrier", 20, "bold") , background="#ffffff")
+comm_entry1 = Entry(form_commande,font=("courrier", 20) , background="#ffffff")
 comm_entry1.grid(column=1,row=0,sticky="ew", columnspan=2) # columnspan dit au grid de sétirer sur la colonne 2
-comm_entry2 = Entry(form_commande,font=("courrier", 20, "bold") , background="#ffffff")
+comm_entry2 = Entry(form_commande,font=("courrier", 20) , background="#ffffff")
 comm_entry2.grid(column=1,row=1,sticky="ew", columnspan=2)
-comm_entry3 = Entry(form_commande,font=("courrier", 20, "bold") , background="#ffffff")
+comm_entry3 = Entry(form_commande,font=("courrier", 20) , background="#ffffff")
 comm_entry3.grid(column=1,row=2,sticky="ew", columnspan=2)
 
 # Les fonctions des boutons
