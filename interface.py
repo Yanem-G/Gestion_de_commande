@@ -5,6 +5,9 @@ import db as db_operations
 
 db=sqlite3.connect("gestion.db")
 
+# creer la base de donné si elle n'existe pas
+db_operations.create_tables(db)
+
 window = Tk()
 
 window.title("Gestion des commands")
