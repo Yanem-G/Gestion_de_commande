@@ -90,7 +90,7 @@ if __name__ == "__main__":
     update_client(db_test,"Abdessamad","0698989898")
     delete_client(db_test,"Aymen")
 
-    insert_commande(db_test,"Marwane","CPY",1)
+    insert_commande(db_test,"Marwane","CPU",1)
     insert_commande(db_test,"Abdessamad","Ram",1)
-    update_commande(db_test,"Marwane","CPY",5)
+    update_commande(db_test,"Marwane","CPU",5)
     delete_commande(db_test,"Abdessamad","Ram",1)
